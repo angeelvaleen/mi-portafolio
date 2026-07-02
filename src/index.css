@@ -55,14 +55,13 @@ body {
 }
 
 #root {
-  width: 1126px;
+  width: 100%;
   max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
+  margin: 0;
+  text-align: left;
+  border: none;
   min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+  display: block;
   box-sizing: border-box;
 }
 
@@ -108,4 +107,47 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* --- Ajustes responsivos finales --- */
+@media (max-width: 768px) {
+  /* Asegura que el grid principal se apile y no cause scroll horizontal */
+  .hero-main-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 10px !important;
+  }
+
+  /* Control estricto del título grande para que no se salga de la pantalla */
+  .hero-typed-title {
+    font-size: clamp(28px, 7vw, 36px) !important;
+    line-height: 1.1 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    max-width: 100% !important;
+  }
+
+  /* Asegura que el contenido de la tarjeta no se desborde */
+  .glass-card {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Evita desbordamiento en la sección principal */
+  #inicio {
+    padding: 32px 16px !important;
+    overflow-x: hidden !important;
+  }
+}
+
+.skill-card:hover {
+  transform: translateY(-8px); /* Eleva la tarjeta */
+  background: rgba(255, 255, 255, 0.06); /* Aclara el fondo al pasar el mouse */
+  border-color: rgba(91, 206, 168, 0.4); /* Cambia el borde a tu color verde */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Agrega sombra para dar profundidad */
 }

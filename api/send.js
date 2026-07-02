@@ -6,8 +6,10 @@ export default async function handler(req, res) {
     return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 
-  const { name, email, msg } = req.body;
+  // 1. AÑADE LOS NUEVOS CAMPOS AQUÍ
+  const { name, company, email, subject, msg } = req.body;
 
+  // 2. ACTUALIZA LA VALIDACIÓN (company y subject son opcionales según definimos antes)
   if (!name || !email || !msg) {
     return res.status(400).send('Faltan campos requeridos');
   }
@@ -20,11 +22,22 @@ export default async function handler(req, res) {
     },
   });
 
+  // 3. ACTUALIZA EL CUERPO DEL CORREO
   const mailOptions = {
     from: email,
     to: process.env.EMAIL_RECEIVER,
-    subject: `Portafolio Personal - Mensaje de: ${name}`,
-    text: `Has recibido un nuevo mensaje desde tu portafolio:\n\nNombre: ${name}\nCorreo: ${email}\n\nMensaje:\n${msg}`,
+    subject: `Portafolio: ${subject || 'Nuevo mensaje'} - De: ${name}`,
+    text: `
+      Has recibido un nuevo mensaje desde tu portafolio:
+
+      Nombre: ${name}
+      Empresa: ${company || 'No especificada'}
+      Correo: ${email}
+      Motivo: ${subject}
+
+      Mensaje:
+      ${msg}
+    `,
   };
 
   try {

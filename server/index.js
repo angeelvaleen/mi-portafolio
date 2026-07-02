@@ -2,11 +2,12 @@ import 'dotenv/config';
 import express from 'express';
 import nodemailer from 'nodemailer';
 
+// ¡Esta es la línea que falta! Debes tenerla justo antes de usar app.post
 const app = express();
 app.use(express.json());
 
 app.post('/api/send', async (req, res) => {
-  const { name, email, msg } = req.body;
+  const { name, company, email, subject, msg } = req.body;
 
   if (!name || !email || !msg) {
     return res.status(400).send('Faltan campos requeridos');
@@ -24,8 +25,8 @@ app.post('/api/send', async (req, res) => {
     await transporter.sendMail({
       from: email,
       to: process.env.EMAIL_RECEIVER,
-      subject: `Portafolio Personal - Mensaje de: ${name}`,
-      text: `Nombre: ${name}\nCorreo: ${email}\n\nMensaje:\n${msg}`,
+      subject: `Portafolio: ${subject || 'Nuevo mensaje'} - De: ${name}`,
+      text: `Nombre: ${name}\nEmpresa: ${company || 'No especificada'}\nCorreo: ${email}\nMotivo: ${subject || 'No especificado'}\n\nMensaje:\n${msg}`,
     });
     return res.status(200).send('¡Mensaje enviado con éxito!');
   } catch (error) {
