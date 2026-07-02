@@ -4,12 +4,7 @@ import imgProyecto2 from "../assets/azteca.jpg";
 import imgProyecto3 from "../assets/banco.jpg";
 import imgProyecto0 from "../assets/proceso.jpg";
 import imgHero from "../assets/hero.png";
-import imgCertificado1 from "../assets/imgCertificado1.jpg";
-import imgCertificado2 from "../assets/imgCertificado2.jpg";
-import imgCertificado3 from "../assets/imgCertificado3.jpg";
-import imgCertificado4 from "../assets/imgCertificado4.jpg";
-import imgCertificado5 from "../assets/imgCertificado5.jpg";
-import imgCertificado6 from "../assets/imgCertificado6.jpg";
+
 
 export const SECTIONS = [
   { id: "inicio", label: "_inicio" },
