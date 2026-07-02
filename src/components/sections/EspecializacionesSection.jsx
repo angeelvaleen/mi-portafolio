@@ -39,7 +39,7 @@ const SKILLS = [
 export default function EspecializacionesSection() {
   return (
     <section
-      id="stack-competencias"
+      id="toolkit" // <--- ID corregido aquí
       style={{
         padding: "20px 24px",
         width: "100%",
@@ -52,6 +52,7 @@ export default function EspecializacionesSection() {
         boxSizing: "border-box",
       }}
     >
+      {/* El resto de tu código igual... */}
       <div
         style={{
           width: "100%",
@@ -59,7 +60,6 @@ export default function EspecializacionesSection() {
           margin: "0 auto",
         }}
       >
-        {/* Título de sección con tu estilo solicitado */}
         <div
           style={{
             display: "flex",
@@ -69,7 +69,6 @@ export default function EspecializacionesSection() {
           }}
         >
           <span className="section-num">04 —</span>
-
           <AnimatedLine>
             <span
               style={{
@@ -85,7 +84,6 @@ export default function EspecializacionesSection() {
           </AnimatedLine>
         </div>
 
-        {/* Grid de 2x2 para que todo esté en pantalla */}
         <div
           style={{
             display: "grid",
@@ -118,14 +116,7 @@ export default function EspecializacionesSection() {
               >
                 {skill.category}
               </h3>
-
-              <ul
-                style={{
-                  listStyle: "none",
-                  padding: 0,
-                  margin: 0,
-                }}
-              >
+              <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                 {skill.items.map((item) => (
                   <li
                     key={item}
@@ -137,15 +128,7 @@ export default function EspecializacionesSection() {
                       alignItems: "center",
                     }}
                   >
-                    <span
-                      style={{
-                        marginRight: 8,
-                        color: "#5bcea8",
-                      }}
-                    >
-                      ▸
-                    </span>
-
+                    <span style={{ marginRight: 8, color: "#5bcea8" }}>▸</span>
                     {item}
                   </li>
                 ))}

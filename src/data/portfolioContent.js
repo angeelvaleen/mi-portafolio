@@ -11,7 +11,7 @@ export const SECTIONS = [
   { id: "perfil", label: "_perfil" },
   { id: "stack", label: "_stack" },
   { id: "proceso", label: "_proceso" }, // <-- ¡Aquí agregamos la nueva sección!
-  { id: "stack-competencias", label: "_especializaciones" },
+  { id: "toolkit", label: "_especializaciones" },
   { id: "proyectos", label: "_proyectos" },
   { id: "contacto", label: "_contacto" },
 ];
@@ -58,23 +58,6 @@ export const SKILLS = [
   { cat: "Otros", items: [["C++", 70], ["Python", 65], ["PDO/SQL", 88]] },
 ];
 
-// Función para calcular la edad automáticamente
-const calculateAge = (birthDateString) => {
-  const today = new Date();
-  const birthDate = new Date(birthDateString);
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const m = today.getMonth() - birthDate.getMonth();
-  
-  // Si aún no estamos en el mes de tu cumpleaños, 
-  // o si es el mes pero todavía no es el día, restamos 1 año.
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
-  }
-  return age;
-};
-
-// Calculamos tu edad basándonos en tu fecha de nacimiento (Año-Mes-Día)
-const myAge = calculateAge("2004-06-18");
 
 export const PROFILE_FACTS = [
   ["ROL", "INGENIERÍA DE SISTEMAS"],
